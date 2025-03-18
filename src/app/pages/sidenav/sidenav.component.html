@@ -1,0 +1,52 @@
+<div class="sidenav" [ngClass]="isLeftSidebarCollapsed() ? 'sidenav-collapsed' : ''">
+  <div class="logo-container">
+    <div class="logo" (click)="toggleCollapse()">
+      <img src="assets/logo/logo.svg" alt="">
+    </div>
+    @if (!isLeftSidebarCollapsed()) {
+    <div class="logo-text">Users App</div>
+    <button class="btn-close" (click)="closeSidenav()">
+      <i class="fal close-icon"></i>
+    </button>
+    }
+  </div>
+  <div class="sidenav-list">
+    <div class="sidenav-nav">
+      @for (item of items; track $index) {
+      <li class="sidenav-nav-item">
+        <a class="sidenav-nav-link" [routerLink]="item.routeLink" routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          <i class="sidenav-link-icon" [class]="item.icon"></i>
+          @if (!isLeftSidebarCollapsed()) {
+          <span class="sidenav-link-text">{{ item.label }}</span>
+          }
+        </a>
+      </li>
+      }
+    </div>
+  </div>
+  <!-- Profile & Logout -->
+  <div class="logout-container d-flex flex-column gap-3">
+    <div class="profile" routerLink="profile">
+      <div class="profile-image rounded-full bg-transparent d-flex align-items-center justify-content-center">
+        <img src="assets/icons/profile-icon.svg" alt="Profile Image" class="bg-transparent rounded-full w-6 h-6" />
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        @if (!isLeftSidebarCollapsed()) {
+        <span class="profile-name d-flex flex-column gap-1">
+          <span>Ali Mohamed</span>
+          <span>Admin</span>
+        </span>
+        }
+      </div>
+    </div>
+    <div class="logout-button">
+      <div class="d-flex align-items-center" (click)="logout()">
+        <img src="assets/icons/log-out.svg" alt="Logout" />
+        @if (!isLeftSidebarCollapsed()) {
+        <span class="logout-text">Log-out</span>
+        }
+      </div>
+    </div>
+  </div>
+</div>

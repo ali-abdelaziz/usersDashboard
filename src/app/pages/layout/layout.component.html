@@ -1,0 +1,7 @@
+  <div class="layout">
+    <app-sidenav [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+      (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)" />
+
+    <app-main [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()" [screenWidth]="screenWidth()" />
+
+  </div>
