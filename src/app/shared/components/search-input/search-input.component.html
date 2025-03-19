@@ -1,0 +1,9 @@
+<div class="search-input-container">
+  <form [formGroup]="filterForm">
+    <div class="relative">
+      <input #listFilter id="table-search"
+      class="d-block"
+      [placeholder]="'Search'" formControlName="filter">
+    </div>
+  </form>
+</div>
